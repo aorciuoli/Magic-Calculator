@@ -1,0 +1,258 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: rgb(65, 64, 64);
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(5, 80px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+}
+
+.secret{
+    border: none;
+    outline: none;
+    background-color: rgba(219, 230, 104, 0.0);
+    cursor: url('data:image/x-icon;base64,AAACAAEAICAAAAkACQCoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAJCQkAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAACAAAAAgAAAAMAAAADAAAAAwAAAAMAAAADAAAAAgAAAAEAAAAAAAAAAP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeXl7/AAAAAAAAAAAAAAAI////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8ACQkJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ0ND/wMDA/9VVVX/AAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAJCQkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAENDQ/8DAwP/RUVF/15eXv9dXV3/AAAAAP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAkJCQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABDQ0P/AwMD/0VFRf9eXl7/RkZG/wAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8ACQkJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ0ND/wMDA/9ERET/Xl5e/0ZGRv8AAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAJCQkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAENDQ/8DAwP/RERE/15eXv9GRkb/AAAAAAAAAAAAAAAAAAAAAP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAkJCQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABDQ0P/AwMD/0VFRf9eXl7/RkZG/wAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8ACQkJAAAAAAAAAAAAAAAAAAAAAAAAAAAAQkJC/wMDA/9ERET/Xl5e/0ZGRv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAJCQkAAAAAAAAAAAAAAAAAAAAAAEJCQv8DAwP/RUVF/15eXv9GRkb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCQkL/AwMD/0VFRf9eXl7/RkZG/wAAAAD///8A////AP///wD///8A////AP///wD///8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQkJC/wMDA/9FRUX/Xl5e/0VFRf8AAAAAAAAAAP///wD///8A////AP///wD///8A////AP///wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEJCQv8DAwP/RERE/15eXv9GRkb/AAAAAP///wD///8A////AP///wD///8A////AP///wD///8A////AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCQkL/AwMD/0RERP9eXl7/RkZG/wAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQkJC/wMDA/9FRUX/Xl5e/0VFRf8AAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wAAAAAAAAAAAAAAAAAAAAAAAAAAAEFBQf8DAwP/RUVF/15eXv9GRkb/AAAAAAAAAAAAAAAAAAAAAP///wD///8A////AP///wD///8A////AP///wD///8A////AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AAAAAAAAAAAAAAAAAAAAAADMzMz/gICA/0VFRf9eXl7/RkZG/wAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8Avv//AL7//wG+//8Cvv//Ar7//wG+//8Avv//AL7//wC+//8AAAAAAAAAAAAAAAAAzMzM/3x8fP+Dg4P/zMzM/0ZGRv8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wC+//8Avv//A77//wu+//8Svv//Db7//wS+//8Bvv//AL7//wAAAAAAAAAAAMzMzP97e3v/g4OD/8jIyP/9/f3/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wD///8A////AP///wD///8A////AP///wD///8A////AL7//wC+//8Gvv//GV3P//6+//8fldD9Ob7//wG+//8AoNHRAAAAAADMzMz/fHx8/4ODg//IyMj//f39/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8Avv//Ab7//we+/f8cYt3//7///ya///8Pvv//A77//wAAAAAAzMzM/3x8fP+Dg4P/yMjI//39/f8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wC+//8Bvv//BL7//xC+//8awP//GMD//w++//8Gvv//AuDg4P97e3v/g4OD/8nJyf/9/f3/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wD///8A////AP///wD///8A////AP///wD///8A////AL7//wC+//8Bvv//A77//wbA//8Ov/7/FL7//w6+//8FwPz8AI+Pj//Jycn//f39/wAAAACz6+sAvv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8A////AP///wD///8A////AP///wD///8A////AP///wD///8Avv//AL7//wC+//8Avv//Ar7//xSa5v9Qvv//H77//wu+//8Avv7+AP7+/v++//8Bvv//Ab7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wD///8A////AP///wD///8A////AP///wD///8A////AP///wC+//8Avv//Ar7//wa+//8Rvv//LlnK/v++/v8/vv//IL7//wq+//8Evv//A77//wW+//8Ivv//B77//wO+//8Bvv//AL7//wC+//8Avv//AL7//wC+//8Avv//AP///wD///8A////AP///wD///8A////AP///wD///8A////AL7//wG+//8Fvv//Dr7//yNe0f/+aun//2Pf/v+7/P86vv//GL7//wm///8Gvv//EL7//x2+//8bV476h77//wK+//8Avv//AL7//wC+//8Avv//AL7//wC+//8A////AP///wD///8A////AP///wD///8A////AP///wD///8Avv//Ab7//wW+//8Nvv//ImTV//Bk4P7/X9f+/77+/za+//8Xvv//Cb///we+//8XX9X//13Q//6+//8Tvv//Ar7//wC+//8Avv//AL7//wC+//8Avv//AL7//wD///8A////AP///wD///8A////AP///wD///8A////AP///wC+//8Avv//Ar7//wW+//8Pvv//KljE/v6+//86vv//Hr7//wm+//8Dv///BL37/hG+//8jUa3/+77//w++//8Cvv//AL7//wC+//8Avv//AL7//wC+//8Avv//AP///wD///8A////AP///wD///8A////AP///wD///8A////AL7//wC+//8Avv//AL7//wG+//8QuPr/H77//xm+//8Jvv//AL7//wC+//8Bvv//Br7//wy+//8Mvv//Bb7//wG+//8Avv//AL7//wC+//8Avv//AL7//wC+//8A////AP///wD///8A////AP///wD///8A////AP///wD///8Avv//AL7//wC+//8Avv//AL7//wa+//8Nvv//Cr7//wO+//8Avv//AL7//wC+//8Avv//Ab7//wG+//8Bvv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wD///8A////AP///wD///8A////AP///wD///8A////AP///wC+//8Avv//AL7//wC+//8Avv//Ar7//wS+//8Dvv//Ab7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AP///wD///8A////AP///wD///8A////AP///wD///8A////AL7//wC+//8Avv//AL7//wC+//8Avv//Ab7//wG+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8Avv//AL7//wC+//8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//////////f////j////wf///4P///8H///+D////B////g////wf///4P///8H///+D////B////g////wf///4P///8H///+D//+/B///vg////wf///+P////3///+/////H9///x8///+/v///////////////////////8='), auto;
+}
+
+
+.secretScreen {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.secretScreen h {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #ffffff;
+    display: block;
+}
+
+.secretScreen a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+.secretScreen a:hover {
+    color: #f1f1f1;
+}
+
+.secretScreen .menuItem{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+  }
+
+.secretScreen .help{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    display: block;
+  }
+
+.secretScreen .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#input{
+    font-size: 16px;
+    padding: 8px 8px 8px 32px;
+    border: none;
+    outline: none;
+    background: white;
+    text-decoration: none;
+}
+
+#submit{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: rgb(83, 83, 83);
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+#submit:hover{
+    background-color: white;
+    color: rgb(83, 83, 83);
+}
+
+#reset{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: rgb(83, 83, 83);
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    left: 50%;
+    text-decoration: none;
+    display: block;
+    margin: 0 auto;
+}
+
+#reset:hover{
+    background-color: rgb(255, 61, 61);
+}
+
+
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+  
+#main {
+    transition: opacity 0.6s ease 0s;
+    padding: 16px;
+  }
+
+.blank{
+    border: none;
+    outline: none;
+    background-color:rgb(65, 64, 64);
+}
+
+
+.num {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid rgb(65, 64, 64);;
+    outline: none;
+    color:rgb(247, 247, 247);
+    background-color:rgb(53, 53, 53);
+}
+
+.num:hover{
+    color:rgb(247, 247, 247);
+    background-color:rgb(95, 95, 95);
+}
+
+.op{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid rgb(65, 64, 64);;
+    outline: none;
+    color:rgb(247, 247, 247);
+    background-color:rgb(237,148,39)
+}
+
+.op:hover{
+    color: rgb(237,148,39);
+    background-color:rgb(247, 247, 247);
+}
+
+.del{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid rgb(65, 64, 64);
+    outline: none;
+    color:rgb(0, 0, 0);
+    background-color: rgb(165, 165, 165);
+}
+
+.del:hover{
+    color:rgb(0, 0, 0);
+    background-color: rgb(221, 221, 221);;
+}
+
+.AC{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid rgb(65, 64, 64);;
+    outline: none;
+    color:rgb(0, 0, 0);
+    background-color: rgb(165, 165, 165);
+    grid-column: span 2;
+}
+
+.AC:hover{
+    color:rgb(0, 0, 0);
+    background-color: rgb(221, 221, 221);
+}
+
+.zero{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid rgb(65, 64, 64);
+    outline: none;
+    color:rgb(247, 247, 247);
+    background-color:rgb(53, 53, 53);
+    grid-column: span 2;
+}
+
+.zero:hover{
+    color:rgb(247, 247, 247);
+    background-color:rgb(95, 95, 95);
+}
+
+.output {
+    grid-column: 2 / -1;
+    background-color: black;
+    color: rgb(247, 247, 247);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+
+#indicator{
+    display: flex;
+    height: 5px;
+    justify-content: space-between;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: rgb(65, 64, 64);
+    border-radius: 50%;
+    border: none;
+    height: 5px;
+    width: 5px;
+}
+
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <link rel="icon" href="calculator.png">
+    <div id="indicator"></div>
+    <div id="menu" class="secretScreen">
+        <h>Super Secret Menu 🤫</h>
+        <a href="javascript:void(0)" class="closebtn" onclick="hide()">×</a>
+        <p></p>
+        <form>
+            <input type="number" id="input" placeholder = "Enter Force Number">
+            <input type="button" id="submit" value="Submit"> 
+        </form>
+
+        <p class="menuItem" id="forceNumber">
+            Force Number: <span id="num-display"></span>
+        </p>
+
+
+        <p class="menuItem">
+            Birthday: <span id="birthday"></span>
+        </p>
+
+        <p class="menuItem">
+            Age: <span id="age"></span>
+        </p>
+
+        <p class="menuItem">
+            Astrological Sign: <span id="astrological"></span>
+        </p>
+        
+        <p class="menuItem">
+            Chinese Zodiac: <span id="chinese-zodiac"></span>
+        </p>
+
+        <p>
+            <button id="reset" onclick=reset()>Reset All</button>
+        </p>
+
+        <p class="help">
+            See "Readme" for instructions
+        </p>
+
+    </div>
+    <div class="calculator-grid">
+        <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+        </div>
+
+        <button id ="main" class="secret" ondblclick="show()"></button>
+        <button data-all-clear class="AC">AC</button>
+        <button data-delete class="del">DEL</button>
+        <button data-operation class="op">÷</button>
+
+        <button class="blank"></button>
+        <button data-number class="num">7</button>
+        <button data-number class="num">8</button>
+        <button data-number class="num">9</button>
+        <button data-operation class="op">x</button>
+
+        <button class="blank"></button>
+        <button data-number class="num">4</button>
+        <button data-number class="num">5</button>
+        <button data-number class="num">6</button>
+        <button data-operation class="op">-</button>
+
+        <button class="secret" onclick="toggleTrickMode()"></button>
+        <button data-number class="num">1</button>
+        <button data-number class="num">2</button>
+        <button data-number class="num">3</button>
+        <button data-operation class="op">+</button>
+
+        <button class="blank"></button>
+        <button data-number class="zero">0</button>
+        <button data-number class="num">.</button>
+        <button data-equals class="op">=</button>
+    </div>
+</body>
+</html>
